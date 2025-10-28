@@ -8,7 +8,7 @@ public class BankingSystemMain {
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void showMenu() {
-		System.out.println("-------Menu---------");
+		System.out.println("---------Menu---------");
 		System.out.print("1.계좌계설 ");
 		System.out.print(", 2.입금 ");
 		System.out.println(", 3.출금 ");
@@ -19,18 +19,22 @@ public class BankingSystemMain {
 	}
 
 	public static void main(String[] args) throws IOException {
+
+		// 어카운트 매니저 생성
 		AccountManager accountManager = new AccountManager();
+		// AccountInfo.obj 데이터 로드
 		accountManager.loadAccount();
 
 		while (true) {
-
+			// 메뉴 표시
 			showMenu();
-			int choice;
 
 			try {
-				choice = scanner.nextInt();
+				//메뉴 선택
+				int choice = scanner.nextInt();
 				scanner.nextLine();
 
+				//지정된 숫자 이외 입력 시 에러
 				if (choice < ICustomDefine.MAKE || choice > ICustomDefine.EXIT) {
 					throw new MenuSelectException();
 				}

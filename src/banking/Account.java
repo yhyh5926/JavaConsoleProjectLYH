@@ -24,24 +24,4 @@ abstract public class Account implements IAccount, Serializable {
 		return accountNum;
 	}
 
-	public void setAccountNum(String accountNum) {
-		this.accountNum = accountNum;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getBalance() {
-		return balance;
-	}
-
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
-
 }

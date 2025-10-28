@@ -298,14 +298,21 @@ public class AccountManager {
 
 	public void showAccInfo() {
 		System.out.println("***계좌정보출력***");
-		for (Account account : accounts) {
-			if (account != null) {
-				System.out.println("----------------");
-				account.showAccInfo();
-				System.out.println("----------------");
-			}
 
+		if (accounts.size() == 0) {
+			System.out.println("등록된 계좌가 없습니다.");
+			return;
+		} else {
+			for (Account account : accounts) {
+				if (account != null) {
+					System.out.println("----------------");
+					account.showAccInfo();
+					System.out.println("----------------");
+				}
+
+			}
 		}
+
 		System.out.println("전체계좌정보 출력이 완료되었습니다.");
 	}
 }

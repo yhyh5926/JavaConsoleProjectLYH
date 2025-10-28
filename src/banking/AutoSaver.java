@@ -35,7 +35,7 @@ public class AutoSaver extends Thread {
 		for (Account account : accounts) {
 			if (account instanceof SpecialAccount) {
 				SpecialAccount sa = (SpecialAccount) account;
-				out.print("[보통계좌]");
+				out.print("[특판계좌]");
 				out.print("계좌번호:" + sa.accountNum);
 				out.print(", 이름:" + sa.name);
 				out.print(", 잔고:" + sa.balance);
