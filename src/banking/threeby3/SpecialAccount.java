@@ -1,4 +1,4 @@
-package banking;
+package banking.threeby3;
 
 public class SpecialAccount extends NormalAccount {
 	int count;
@@ -17,7 +17,7 @@ public class SpecialAccount extends NormalAccount {
 			this.balance += (this.balance * this.interest / 100) + money + bonus;
 			System.out.println("짝수 번째 입금 보너스 + " + bonus);
 		} else {
-			this.balance += (this.balance * this.interest / 100) + money + bonus;
+			this.balance += (this.balance * this.interest / 100) + bonus;
 		}
 	}
 

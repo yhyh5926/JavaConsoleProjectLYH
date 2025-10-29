@@ -37,7 +37,6 @@ public class ShowAccount extends MyConnection {
 
 	public static void main(String[] args) {
 		new ShowAccount("project", "1234").dbExecute();
-		;
 	}
 
 }

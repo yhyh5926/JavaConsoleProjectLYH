@@ -1,4 +1,4 @@
-package banking;
+package banking.threeby3;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,13 +18,15 @@ public class AccountManager {
 	public Set<Account> accounts;
 	private static AutoSaver autoSaver;
 
+	Puzzle puzzle = new Puzzle();
+
 	public AccountManager() {
 		accounts = new HashSet<>();
 	}
 
 	public void puzzle() {
 		System.out.println("--------숫자퍼즐게임 시작--------");
-
+		puzzle.puzzleStart();
 	}
 
 	public void saveOption() throws IOException {

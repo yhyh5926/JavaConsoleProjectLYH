@@ -1,4 +1,4 @@
-package banking;
+package banking.threeby3;
 
 public class HighCreditAccount extends Account {
 

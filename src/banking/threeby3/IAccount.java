@@ -1,4 +1,4 @@
-package banking;
+package banking.threeby3;
 
 public interface IAccount {
 	public void showAccInfo();
