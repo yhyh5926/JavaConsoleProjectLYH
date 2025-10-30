@@ -22,11 +22,6 @@ public class AccountManager {
 		accounts = new HashSet<>();
 	}
 
-	public void puzzle() {
-		System.out.println("--------숫자퍼즐게임 시작--------");
-
-	}
-
 	public void saveOption() throws IOException {
 		System.out.println("저장 옵션을 선택하세요.");
 		System.out.println("1.자동저장On, 2.자동저장Off");
