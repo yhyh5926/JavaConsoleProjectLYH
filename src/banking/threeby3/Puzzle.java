@@ -7,8 +7,6 @@ interface Key {
 	String DOWN = "s";
 	String LEFT = "a";
 	String RIGHT = "d";
-	String EXIT = "x";
-	String RESTART = "y";
 }
 
 public class Puzzle {
@@ -32,8 +30,8 @@ public class Puzzle {
 		int newX = x + dx;
 		int newY = y + dy;
 
-		if (x >= 0 && x < arr.length && y >= 0 && y < arr[0].length && newX >= 0 && newX < arr.length && newY >= 0
-				&& newY < arr[0].length) {
+		if (x >= 0 && x < arr.length && y >= 0 && y < arr.length && newX >= 0 && newX < arr.length && newY >= 0
+				&& newY < arr.length) {
 			String temp = arr[newX][newY];
 			arr[x][y] = temp;
 			arr[newX][newY] = "x";
@@ -60,7 +58,7 @@ public class Puzzle {
 
 	public String[][] handleShuffle(String[][] arr) {
 
-		int count = 100;
+		int count = 5;
 		int[][] direction = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 		Random random = new Random();
 
@@ -73,8 +71,8 @@ public class Puzzle {
 			int newX = x + dir[0];
 			int newY = y + dir[1];
 
-			if (x >= 0 && x < arr.length && y >= 0 && y < arr[0].length && newX >= 0 && newX < arr.length && newY >= 0
-					&& newY < arr[0].length) {
+			if (x >= 0 && x < arr.length && y >= 0 && y < arr.length && newX >= 0 && newX < arr.length && newY >= 0
+					&& newY < arr.length) {
 				String temp = arr[newX][newY];
 				arr[x][y] = temp;
 				arr[newX][newY] = "x";
@@ -103,7 +101,16 @@ public class Puzzle {
 
 			if (isMatch(shuffledArr)) {
 				System.out.println("==^^정답입니다^^==");
-				System.out.println("재시작하시겠습니까?(y누르면 재시작, x는 종료)");
+				System.out.println("재시작하시겠습니까?(y누르면 재시작, 나머지는 종료)");
+				String key = BankingSystemMain.scanner.nextLine();
+				if (key.equals("y")) {
+					shuffledArr = handleShuffle(
+							new String[][] { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8", "x" } });
+					continue;
+				} else {
+					System.out.println("게임을 종료합니다.");
+					return;
+				}
 			}
 
 			System.out.print("키를 입력해주세요:");
@@ -121,12 +128,6 @@ public class Puzzle {
 			case Key.RIGHT:
 				handleMove(shuffledArr, 0, -1);
 				break;
-			case Key.RESTART:
-				shuffledArr = handleShuffle(new String[][] { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8", "x" } });
-				break;
-			case Key.EXIT:
-				System.out.println("게임을 종료합니다.");
-				return;
 			default:
 				System.out.println("잘못된 입력입니다");
 				continue;
