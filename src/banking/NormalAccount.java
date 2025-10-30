@@ -19,15 +19,4 @@ public class NormalAccount extends Account {
 		this.balance += (this.balance * this.interest / 100) + money;
 	}
 
-	@Override
-	public int hashCode() {
-		int returnCode = getAccountNum().hashCode();
-		return returnCode;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		Account account = (Account) obj;
-		return getAccountNum().equals(account.getAccountNum());
-	}
 }

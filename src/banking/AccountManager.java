@@ -170,7 +170,7 @@ public class AccountManager {
 
 		for (Account account : accounts) {
 
-			if (account.getAccountNum().equals(searchAccountNum)) {
+			if (account.accountNum.equals(searchAccountNum)) {
 				return account;
 			}
 
@@ -266,7 +266,7 @@ public class AccountManager {
 
 		while (iterator.hasNext()) {
 			Account account = iterator.next();
-			if (account.getAccountNum().equals(iAccount)) {
+			if (account.accountNum.equals(iAccount)) {
 				iterator.remove();
 				System.out.println("계좌를 삭제하였습니다.");
 				find = true;

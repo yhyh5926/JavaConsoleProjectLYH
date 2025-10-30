@@ -45,8 +45,15 @@ abstract public class Account implements IAccount, Serializable {
 		System.out.println("출금이 완료되었습니다.");
 	}
 
-	public String getAccountNum() {
-		return accountNum;
+	@Override
+	public int hashCode() {
+		int returnCode = accountNum.hashCode();
+		return returnCode;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		Account account = (Account) obj;
+		return accountNum.equals(account.accountNum);
+	}
 }

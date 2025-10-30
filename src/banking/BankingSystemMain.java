@@ -9,7 +9,7 @@ public class BankingSystemMain {
 
 	public static void showMenu() {
 		System.out.println("---------Menu---------");
-		System.out.print("1.계좌계설 ");
+		System.out.print("1.계좌개설 ");
 		System.out.print(", 2.입금 ");
 		System.out.print(", 3.출금 ");
 		System.out.println("4.전체계좌정보출력");
@@ -30,11 +30,11 @@ public class BankingSystemMain {
 			showMenu();
 
 			try {
-				//메뉴 선택
+				// 메뉴 선택
 				int choice = scanner.nextInt();
 				scanner.nextLine();
 
-				//지정된 숫자 이외 입력 시 에러
+				// 지정된 숫자 이외 입력 시 에러
 				if (choice < ICustomDefine.MAKE || choice > ICustomDefine.EXIT) {
 					throw new MenuSelectException();
 				}
