@@ -7,10 +7,10 @@ abstract public class Account implements IAccount, Serializable {
 	String name;
 	int balance;
 
-	public Account(String accountNum, String name, int balane) {
+	public Account(String accountNum, String name, int balance) {
 		this.accountNum = accountNum;
 		this.name = name;
-		this.balance = balane;
+		this.balance = balance;
 	}
 
 	@Override

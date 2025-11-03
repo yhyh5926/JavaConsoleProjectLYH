@@ -60,7 +60,8 @@ public class AccountManager {
 
 	public void saveAccount() {
 		try {
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src/banking.threeby3/AccountInfo.obj"));
+			ObjectOutputStream out = new ObjectOutputStream(
+					new FileOutputStream("src/banking/threeby3/AccountInfo.obj"));
 			out.writeObject(accounts);
 			out.close();
 			System.out.println("AccountInfo.obj에 저장됨");
@@ -73,7 +74,7 @@ public class AccountManager {
 
 	public void loadAccount() {
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/banking.threeby3/AccountInfo.obj"));
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/banking/threeby3/AccountInfo.obj"));
 			accounts = (Set<Account>) in.readObject();
 			in.close();
 			System.out.println("AccountInfo.obj에서 로드됨");
@@ -85,7 +86,10 @@ public class AccountManager {
 	}
 
 	public void checkDuplicateAccount(Account account) {
-		if (accounts.contains(account)) {
+
+		boolean result = accounts.add(account);
+
+		if (!result) {
 			System.out.println("중복계좌발견됨, 덮어쓸까요? (y or n)");
 			String reply = BankingSystemMain.scanner.nextLine();
 
@@ -97,8 +101,6 @@ public class AccountManager {
 				System.out.println("취소되었습니다.");
 			}
 			return;
-		} else {
-			accounts.add(account);
 		}
 	}
 
@@ -172,7 +174,7 @@ public class AccountManager {
 
 		for (Account account : accounts) {
 
-			if (account.getAccountNum().equals(searchAccountNum)) {
+			if (account.accountNum.equals(searchAccountNum)) {
 				return account;
 			}
 
@@ -196,20 +198,7 @@ public class AccountManager {
 					if (money % 500 != 0)
 						System.out.println("입금액은 500원 단위로만 가능합니다");
 					else {
-						// 특판계좌 시 이자
-						if (searchAcc instanceof SpecialAccount) {
-							SpecialAccount sa = (SpecialAccount) searchAcc;
-							sa.depositMoney(money);
-							// 신뢰계좌 시 이자
-						} else if (searchAcc instanceof HighCreditAccount) {
-
-							HighCreditAccount ha = (HighCreditAccount) searchAcc;
-							ha.depositMoney(money);
-							// 일반계좌 시 이자
-						} else if (searchAcc instanceof NormalAccount) {
-							NormalAccount na = (NormalAccount) searchAcc;
-							na.depositMoney(money);
-						}
+						searchAcc.depositMoney(money);
 						System.out.println("입금이 완료되었습니다.");
 					}
 				}
@@ -268,7 +257,7 @@ public class AccountManager {
 
 		while (iterator.hasNext()) {
 			Account account = iterator.next();
-			if (account.getAccountNum().equals(iAccount)) {
+			if (account.accountNum.equals(iAccount)) {
 				iterator.remove();
 				System.out.println("계좌를 삭제하였습니다.");
 				find = true;

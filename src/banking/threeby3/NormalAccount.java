@@ -3,8 +3,8 @@ package banking.threeby3;
 public class NormalAccount extends Account {
 	int interest;
 
-	public NormalAccount(String accountNum, String name, int balane, int interest) {
-		super(accountNum, name, balane);
+	public NormalAccount(String accountNum, String name, int balance, int interest) {
+		super(accountNum, name, balance);
 		this.interest = interest;
 	}
 
@@ -19,15 +19,4 @@ public class NormalAccount extends Account {
 		this.balance += (this.balance * this.interest / 100) + money;
 	}
 
-	@Override
-	public int hashCode() {
-		int returnCode = getAccountNum().hashCode();
-		return returnCode;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		Account account = (Account) obj;
-		return getAccountNum().equals(account.getAccountNum());
-	}
 }

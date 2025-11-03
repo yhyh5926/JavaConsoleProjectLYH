@@ -29,21 +29,8 @@ public class HighCreditAccount extends Account {
 			return ICustomDefine.A;
 		else if (creditScore == "B")
 			return ICustomDefine.B;
-		;
 
 		return ICustomDefine.C;
-	}
-
-	@Override
-	public int hashCode() {
-		int returnCode = getAccountNum().hashCode();
-		return returnCode;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		Account account = (Account) obj;
-		return getAccountNum().equals(account.getAccountNum());
 	}
 
 }

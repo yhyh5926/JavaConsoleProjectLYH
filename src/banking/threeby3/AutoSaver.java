@@ -11,7 +11,7 @@ public class AutoSaver extends Thread {
 
 	public AutoSaver(Set<Account> accounts) {
 		this.accounts = accounts;
-		setDaemon(true); // 프로그램 종료 시 쓰레드도 종료된느 데몬쓰레드
+		setDaemon(true); // 프로그램 종료 시 쓰레드도 종료되는 데몬쓰레드
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class AutoSaver extends Thread {
 	}
 
 	public void autoSave(Set<Account> accounts) throws IOException {
-		PrintWriter out = new PrintWriter(new FileWriter("src/banking/AutoSaveAccount.txt"));
+		PrintWriter out = new PrintWriter(new FileWriter("src/banking/threeby3/AutoSaveAccount.txt"));
 
 		for (Account account : accounts) {
 			if (account instanceof SpecialAccount) {
