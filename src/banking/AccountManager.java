@@ -45,24 +45,9 @@ public class AccountManager {
 	}
 
 	public void checkDuplicateAccount(Account account) {
-//		if (accounts.contains(account)) {
-//			System.out.println("중복계좌발견됨, 덮어쓸까요? (y or n)");
-//			String reply = BankingSystemMain.scanner.nextLine();
-//
-//			if (reply.equals("y")) {
-//				accounts.remove(account);
-//				accounts.add(account);
-//				System.out.println("계좌정보를 덮어씌웠습니다.");
-//			} else {
-//				System.out.println("취소되었습니다.");
-//			}
-//			return;
-//		} else {
-//			accounts.add(account);
-//		}
-		
+
 		boolean result = accounts.add(account);
-		
+
 		if (!result) {
 			System.out.println("중복계좌발견됨, 덮어쓸까요? (y or n)");
 			String reply = BankingSystemMain.scanner.nextLine();
@@ -172,20 +157,7 @@ public class AccountManager {
 					if (money % 500 != 0)
 						System.out.println("입금액은 500원 단위로만 가능합니다");
 					else {
-						// 특판계좌 시 이자
-						if (searchAcc instanceof SpecialAccount) {
-							SpecialAccount sa = (SpecialAccount) searchAcc;
-							sa.depositMoney(money);
-							// 신뢰계좌 시 이자
-						} else if (searchAcc instanceof HighCreditAccount) {
-
-							HighCreditAccount ha = (HighCreditAccount) searchAcc;
-							ha.depositMoney(money);
-							// 일반계좌 시 이자
-						} else if (searchAcc instanceof NormalAccount) {
-							NormalAccount na = (NormalAccount) searchAcc;
-							na.depositMoney(money);
-						}
+						searchAcc.depositMoney(money);
 						System.out.println("입금이 완료되었습니다.");
 					}
 				}

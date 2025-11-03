@@ -60,7 +60,7 @@ public class AccountManager {
 
 	public void saveAccount() {
 		try {
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src/banking/AccountInfo.obj"));
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("src/banking.threeby3/AccountInfo.obj"));
 			out.writeObject(accounts);
 			out.close();
 			System.out.println("AccountInfo.obj에 저장됨");
@@ -73,7 +73,7 @@ public class AccountManager {
 
 	public void loadAccount() {
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/banking/AccountInfo.obj"));
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/banking.threeby3/AccountInfo.obj"));
 			accounts = (Set<Account>) in.readObject();
 			in.close();
 			System.out.println("AccountInfo.obj에서 로드됨");
