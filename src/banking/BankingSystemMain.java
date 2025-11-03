@@ -14,8 +14,7 @@ public class BankingSystemMain {
 		System.out.print(", 3.출금 ");
 		System.out.println("4.전체계좌정보출력");
 		System.out.print("5.계좌정보삭제");
-		System.out.print(", 6.저장옵션");
-		System.out.println(", 7.프로그램 종료");
+		System.out.println(", 6.프로그램 종료");
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -54,9 +53,6 @@ public class BankingSystemMain {
 					break;
 				case ICustomDefine.DELETE:
 					accountManager.deleteAccount();
-					break;
-				case ICustomDefine.SAVE_OPTION:
-					accountManager.saveOption();
 					break;
 				case ICustomDefine.EXIT:
 					System.out.println("프로그램 종료");

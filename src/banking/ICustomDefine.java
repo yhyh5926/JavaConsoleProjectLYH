@@ -7,8 +7,7 @@ public interface ICustomDefine {
 	int WITHDRAW = 3;
 	int INQUIRE = 4;
 	int DELETE = 5;
-	int SAVE_OPTION = 6;
-	int EXIT = 7;
+	int EXIT = 6;
 
 	// 이자율
 	double A = 7.0;

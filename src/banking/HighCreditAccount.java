@@ -29,7 +29,6 @@ public class HighCreditAccount extends Account {
 			return ICustomDefine.A;
 		else if (creditScore == "B")
 			return ICustomDefine.B;
-		;
 
 		return ICustomDefine.C;
 	}

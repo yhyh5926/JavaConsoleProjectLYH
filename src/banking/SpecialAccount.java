@@ -9,6 +9,12 @@ public class SpecialAccount extends NormalAccount {
 	}
 
 	@Override
+	public void showAccInfo() {
+		super.showAccInfo();
+		System.out.println("입금 회차: " + count + "회");
+	}
+
+	@Override
 	public void depositMoney(int money) {
 		this.count++;
 		int bonus = 500;
@@ -19,12 +25,6 @@ public class SpecialAccount extends NormalAccount {
 		} else {
 			this.balance += (this.balance * this.interest / 100) + money + bonus;
 		}
-	}
-
-	@Override
-	public void showAccInfo() {
-		super.showAccInfo();
-		System.out.println("입금 회차: " + count + "회");
 	}
 
 }

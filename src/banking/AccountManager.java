@@ -3,52 +3,20 @@ package banking;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Set;
 
+
 public class AccountManager {
 
 	public Set<Account> accounts;
-	private static AutoSaver autoSaver;
 
 	public AccountManager() {
 		accounts = new HashSet<>();
-	}
-
-	public void saveOption() throws IOException {
-		System.out.println("저장 옵션을 선택하세요.");
-		System.out.println("1.자동저장On, 2.자동저장Off");
-		int option = BankingSystemMain.scanner.nextInt();
-
-		switch (option) {
-		case 1:
-			if (autoSaver != null && autoSaver.isAlive()) {
-				System.out.println("이미 자동저장이 실행중입니다.");
-			} else {
-				autoSaver = new AutoSaver(accounts);
-				autoSaver.start();
-				System.out.println("자동저장이 시작되었습니다.");
-			}
-			break;
-		case 2:
-			if (autoSaver != null && autoSaver.isAlive()) {
-				autoSaver.interrupt();
-				System.out.println("자동저장이 중지되었습니다.");
-			} else {
-				System.out.println("자동저장이 실행중이 아닙니다.");
-			}
-			break;
-		default:
-			System.out.println("잘못된 선택입니다.");
-		}
-
 	}
 
 	public void saveAccount() {
@@ -287,7 +255,6 @@ public class AccountManager {
 					account.showAccInfo();
 					System.out.println("----------------");
 				}
-
 			}
 		}
 
