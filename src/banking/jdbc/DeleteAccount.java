@@ -32,7 +32,6 @@ public class DeleteAccount extends MyConnection {
 
 	public static void main(String[] args) {
 		new DeleteAccount("project", "1234").dbExecute();
-		;
 	}
 
 }
