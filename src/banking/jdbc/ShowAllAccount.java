@@ -1,7 +1,5 @@
 package banking.jdbc;
 
-import java.sql.SQLException;
-
 public class ShowAllAccount extends MyConnection {
 
 	public ShowAllAccount(String user, String pass) {
