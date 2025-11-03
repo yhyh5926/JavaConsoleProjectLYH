@@ -10,7 +10,6 @@ import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Set;
 
-
 public class AccountManager {
 
 	public Set<Account> accounts;
@@ -46,7 +45,25 @@ public class AccountManager {
 	}
 
 	public void checkDuplicateAccount(Account account) {
-		if (accounts.contains(account)) {
+//		if (accounts.contains(account)) {
+//			System.out.println("중복계좌발견됨, 덮어쓸까요? (y or n)");
+//			String reply = BankingSystemMain.scanner.nextLine();
+//
+//			if (reply.equals("y")) {
+//				accounts.remove(account);
+//				accounts.add(account);
+//				System.out.println("계좌정보를 덮어씌웠습니다.");
+//			} else {
+//				System.out.println("취소되었습니다.");
+//			}
+//			return;
+//		} else {
+//			accounts.add(account);
+//		}
+		
+		boolean result = accounts.add(account);
+		
+		if (!result) {
 			System.out.println("중복계좌발견됨, 덮어쓸까요? (y or n)");
 			String reply = BankingSystemMain.scanner.nextLine();
 
@@ -58,8 +75,6 @@ public class AccountManager {
 				System.out.println("취소되었습니다.");
 			}
 			return;
-		} else {
-			accounts.add(account);
 		}
 	}
 

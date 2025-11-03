@@ -11,6 +11,11 @@ interface Key {
 
 public class Puzzle {
 
+	// 셔플할 횟수
+	int COUNT = 100;
+	// 입력한 횟수
+	int inputCount = 0;
+
 	public int[] getXIndex(String[][] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++) {
@@ -58,11 +63,10 @@ public class Puzzle {
 
 	public String[][] handleShuffle(String[][] arr) {
 
-		int count = 5;
 		int[][] direction = { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
 		Random random = new Random();
 
-		for (int i = 0; i < count; i++) {
+		for (int i = 0; i < COUNT; i++) {
 			int[] dir = direction[random.nextInt(direction.length)]; // 4가지 중 하나 뽑기
 			int[] position = getXIndex(arr);
 			int x = position[0];
@@ -101,6 +105,7 @@ public class Puzzle {
 
 			if (isMatch(shuffledArr)) {
 				System.out.println("==^^정답입니다^^==");
+				System.out.println("입력한 총 횟수 " + inputCount);
 				System.out.println("재시작하시겠습니까?(y누르면 재시작, 나머지는 종료)");
 				String key = BankingSystemMain.scanner.nextLine();
 				if (key.equals("y")) {
@@ -118,15 +123,24 @@ public class Puzzle {
 			switch (key) {
 			case Key.UP:
 				handleMove(shuffledArr, 1, 0);
+				inputCount++;
+				System.out.println("입력한 횟수 " + inputCount);
 				break;
 			case Key.DOWN:
 				handleMove(shuffledArr, -1, 0);
+				inputCount++;
+				System.out.println("입력한 횟수 " + inputCount);
 				break;
 			case Key.LEFT:
 				handleMove(shuffledArr, 0, 1);
+
+				inputCount++;
+				System.out.println("입력한 횟수 " + inputCount);
 				break;
 			case Key.RIGHT:
 				handleMove(shuffledArr, 0, -1);
+				inputCount++;
+				System.out.println("입력한 횟수 " + inputCount);
 				break;
 			default:
 				System.out.println("잘못된 입력입니다");
