@@ -19,7 +19,7 @@ public class ShowAccount extends MyConnection {
 			psmt.setString(1, inputValue("조회할 계좌번호를 입력하세요"));
 			rs = psmt.executeQuery();
 
-			while (rs.next()) {
+			if(rs.next()) {
 				String accountNum = rs.getString("accountNum");
 				String name = rs.getString("name");
 				String balance = rs.getString("bal");
